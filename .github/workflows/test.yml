@@ -71,7 +71,6 @@ jobs:
                 apt install -y python3.8-venv && python3.8 -m venv venv38 && source venv38/bin/activate && \
                 apt-get install -y make && \
                 apt-get install -y build-essential && \
-                make setup-env && \
                 apt-get install -y make && \
                 apt-get install -y build-essential && \
                 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.1/install.sh | bash && \
