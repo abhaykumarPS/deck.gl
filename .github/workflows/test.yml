@@ -75,7 +75,8 @@ jobs:
                 python3.8 --version && \
                 uname -m && \
                 apt-get install libpq-dev -y libxml2-dev -y libxslt1-dev -y python3-dev -y && \
-                curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.1/install.sh | bash
+                apt-get install -y curl && \
+                curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash  && \            
                 nvm install 12.12.0 && nvm use 12.12.0  && \
                 cd bindings/pydeck && \
                 make setup-env && \
