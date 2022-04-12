@@ -70,6 +70,8 @@ jobs:
                bash -exc 'apt-get update && apt-get -y install python3.8 curl git && \
                 apt install -y python3.8-venv && python3.8 -m venv venv38 && source venv38/bin/activate && \
                 uname -m && \
+                python3 -m venv env && \
+                make setup-env && \
                 apt-get install -y make && \
                 apt-get install -y build-essential && \
                 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.1/install.sh | bash && \
@@ -81,8 +83,6 @@ jobs:
                 pip3 install pandas && \
                 apt-get install -y make && \
                 apt-get install -y build-essential && \
-                python3 -m venv env && \
-                make setup-env && \
                 make init && \
                 make test && \
                 deactivate'
