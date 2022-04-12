@@ -54,7 +54,6 @@ jobs:
           cd bindings/pydeck
           make setup-env
           make init
-
       - name: Run tests
         run: |
           cd bindings/pydeck
