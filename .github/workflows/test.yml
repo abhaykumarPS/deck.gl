@@ -70,8 +70,6 @@ jobs:
                bash -exc 'apt-get update && apt-get -y install python3.8 curl git && \
                 apt install -y python3.8-venv && python3.8 -m venv venv38 && source venv38/bin/activate && \
                 uname -m && \
-                apt-get install -y libpq-dev -y libxml2-dev -y libxslt1-dev -y python3-dev -y && \
-                apt-get install -y curl && \
                 cd bindings/pydeck && \
                 make setup-env && \
                 make init && \
