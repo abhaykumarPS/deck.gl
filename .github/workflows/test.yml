@@ -74,14 +74,14 @@ jobs:
               curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -v -y --default-toolchain none && \
               python -m pip install --upgrade pip && \
               python --version && \
+              pip install pytest && \
               uname -m && \
               curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.1/install.sh | bash && \
               pip install pydeck && \
               nvm install 12.12.0 && nvm use 12.12.0 && \
               cd bindings/pydeck && \
-              make setup-env  && \
               make init && \       
-              make test && \
+              pytest && \
               deactivate'
 
 
