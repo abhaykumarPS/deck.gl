@@ -77,7 +77,10 @@ jobs:
                 apt-get install -y yarn && \
                 yarn bootstrap && \
                 pip3 install pandas && \
-                cd bindings/pydeck && \                
+                cd bindings/pydeck && \
+                pip install -r requirements/requirements.txt && \
+                pip install -r requirements/requirements-dev.txt && \
+                pip install -e . && \
                 make test && \
                 deactivate'
 
