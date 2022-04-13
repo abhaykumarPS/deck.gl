@@ -78,7 +78,6 @@ jobs:
                 yarn bootstrap && \
                 pip3 install pandas && \
                 cd bindings/pydeck && \                
-                make init && \
                 make test && \
                 deactivate'
 
