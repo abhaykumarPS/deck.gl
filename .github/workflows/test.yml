@@ -56,29 +56,31 @@ jobs:
         run: |
           cd bindings/pydeck
           make test
-  test_arm64: 
-     runs-on: ubuntu-latest
-     steps:
-      - uses: actions/checkout@v2
-      - name: Set up QEMU
-        id: qemu
-        uses: docker/setup-qemu-action@v1
-      - name: Install and Run tests
-        run: |
-               docker run --rm -v ${{ github.workspace }}:/ws:rw --workdir=/ws \
-               arm64v8/ubuntu:20.04 \
-               bash -exc 'apt-get update && apt-get -y install python3.8 curl git && \
-                apt install -y python3.8-venv && python3.8 -m venv venv38 && source venv38/bin/activate && \
-                apt-get install -y make && \
-                apt-get install -y build-essential && \
-                pip install psutil && \
-                curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.1/install.sh | bash && \
-                pip install pydeck && \
-                pip3 install pandas && \
-                cd bindings/pydeck && \
-                pip install -r requirements/requirements.txt && \
-                pip install -r requirements/requirements-dev.txt && \
-                pip install -e . && \
-                make test && \
-                deactivate'
+  armv64_job:
+      name: Build and Test for arm64
+      runs-on: ubuntu-20.04
+      steps:
+        - uses: actions/checkout@v2
+        - name: Set up QEMU
+          id: qemu
+          uses: docker/setup-qemu-action@v1
+        - name: Install and Run tests
+          run: |
+            docker run --rm -v ${{ github.workspace }}:/ws:rw --workdir=/ws \
+              arm64v8/ubuntu:20.04 \
+              bash -exc 'apt-get update && apt-get -y install python3 python3-pip python3-venv curl && \
+              python3 -m pip install virtualenv && python3 -m venv py38-venv && \
+              source py38-venv/bin/activate && \
+              curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -v -y --default-toolchain none && \
+              python -m pip install --upgrade pip && \
+              python --version && \
+              uname -m && \
+              curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.1/install.sh | bash && \
+              nvm install 12.12.0 && nvm use 12.12.0 && \
+              cd bindings/pydeck && \
+              make setup-env  && \
+              make init && \       
+              make test && \
+              deactivate'
+
 
