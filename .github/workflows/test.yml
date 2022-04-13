@@ -73,9 +73,6 @@ jobs:
                 apt-get install -y build-essential && \
                 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.1/install.sh | bash && \
                 pip install pydeck && \
-                nvm install 12.12.0 && nvm use 12.12.0 && \
-                apt-get install -y yarn && \
-                yarn bootstrap && \
                 pip3 install pandas && \
                 cd bindings/pydeck && \
                 pip install -r requirements/requirements.txt && \
