@@ -55,6 +55,7 @@ jobs:
               pip install --upgrade pip && \
               cd bindings/pydeck/requirements && \
               pip install --upgrade pip && \
+              pip3 install pydeck  && \
               pip install -r requirements-dev.txt && \
               curl https://raw.github.com/creationix/nvm/master/install.sh | sh && \
               nvm install 10.16.0 && \
