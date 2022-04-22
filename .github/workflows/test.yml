@@ -57,6 +57,7 @@ jobs:
               whoami && \
               pwd && \
               ls && \
+              apt-get install -y npm && \
               npm install deck.gl && \
               python3.7 -m pip install --upgrade pip && \
               cd bindings/pydeck/requirements && \
