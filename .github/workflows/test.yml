@@ -61,7 +61,8 @@ jobs:
               npm install deck.gl && \
               python3.7 -m pip install --upgrade pip && \
               cd bindings/pydeck/requirements && \
-              pyhon3.7 -m pip3 install pydeck  && \
+              pyhon3.7 -m pip install pydeck  && \
+              pyhon3.7 -m pip install pydeck pandas pytest && \
               pyhon3.7 -m pip install -r requirements-dev.txt && \
               curl https://raw.github.com/creationix/nvm/master/install.sh | sh && \
               nvm install 10.16.0 && \
@@ -69,7 +70,7 @@ jobs:
               cd .. && \
               pyhon3.7 -m pip install -e . --install-option "--build_all" && \
               pyhon3.7 -m pip install -e . --install-option "--build_all" --verbose && \
-              pyhon3.7 -m pip3 install pydeck pandas pytest && \
+              pyhon3.7 -m pip install pydeck  && \
               pyhon3.7 -m pytest --cov=pydeck && \
               deactivate'
               
@@ -90,11 +91,12 @@ jobs:
               apt-get install -y mesa-utils xvfb libgl1-mesa-dri libglapi-mesa libosmesa6 && apt-get install -y npm && \
               python3 -m pip install --upgrade pip && \
               npm install deck.gl && \
-              pip install --upgrade pip && \
+              pip3 install --upgrade pip && \
               cd bindings/pydeck/requirements && \
-              pip install --upgrade pip && \
+              pip3 install --upgrade pip && \
               pip3 install pydeck  && \
-              pip install -r requirements-dev.txt && \
+              pip 3install -r requirements-dev.txt && \
+              pip3 install pydeck pandas pytest && \
               curl https://raw.github.com/creationix/nvm/master/install.sh | sh && \
               nvm install 10.16.0 && \
               nvm use 10.16.0 && \
