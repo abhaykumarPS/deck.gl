@@ -11,7 +11,7 @@ requires = [
 
 [tool.black]
 line-length = 120
-target-version = ['py34']
+target-version = ['py38']
 include = '\.pyi?$'
 exclude = '''
 
