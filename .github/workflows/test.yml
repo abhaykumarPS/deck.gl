@@ -25,7 +25,7 @@ jobs:
       - name: Install dependencies
         run: |
           python3 -m pip install --upgrade pip && \
-          apt-get install -y npm && \
+          sudo apt-get install -y npm && \
           npm install deck.gl && \
           pip3 install pydeck pandas pytest 
       - name: Run tests
