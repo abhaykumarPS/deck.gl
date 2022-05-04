@@ -51,5 +51,6 @@ jobs:
               python3 -m pip install --upgrade pip && \
               npm install deck.gl && \
               pip3 install pydeck pandas pytest && \
-              pytest &&
+              cd bindings/pydeck && \
+              pytest 
               deactivate'
