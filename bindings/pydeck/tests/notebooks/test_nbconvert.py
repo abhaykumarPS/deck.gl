@@ -8,6 +8,7 @@ here = os.path.dirname(os.path.abspath(__file__))
 nb_path = os.path.join(here, "../../examples")
 nb_glob = os.path.join(nb_path, "*.ipynb")
 
+
 @pytest.mark.skipif(os.getenv("GITHUB_ACTIONS") == "false", reason="Skipping in CI tests")
 def test_nbconvert():
     for fname in glob.glob(nb_glob):
