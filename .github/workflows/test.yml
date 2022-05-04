@@ -32,7 +32,7 @@ jobs:
       - name: Run tests
         run: |
           cd bindings/pydeck
-          c
+          make test
   armv64_job:
     name: Build and Test for arm64
     runs-on: ubuntu-20.04
