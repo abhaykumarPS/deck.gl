@@ -53,4 +53,4 @@ jobs:
               pip3 install pydeck pandas pytest && \
               cd bindings/pydeck && \
               pytest && \
-              'deactivate'
+              deactivate'
